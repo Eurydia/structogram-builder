@@ -1,50 +1,35 @@
-import { FC, Fragment, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
-type LoopBlockProps = {
+type TestFirstLoopBlockProps = {
   condition: string;
   children: ReactNode;
-  variant?: "first" | "last" | undefined;
 };
-export const LoopBlock: FC<LoopBlockProps> = (props) => {
-  const { condition, children, variant } = props;
+export const TestFirstLoopBlock: FC<TestFirstLoopBlockProps> = (
+  props,
+) => {
+  const { condition, children } = props;
 
   return (
-    <div
-      style={{
-        paddingTop: variant === "last" ? "0" : "0.75em",
-        paddingLeft: "0.75em",
-        paddingRight: "0",
-        paddingBottom: !(variant === "last") ? "0" : "0.75em",
-        borderWidth: "0.15em",
-        borderColor: "black",
-        borderStyle: "solid",
-      }}
-    >
-      {variant === "last" ? (
-        <Fragment>
-          <div
-            style={{
-              paddingBottom: "0.75em",
-              marginLeft: "2.75em",
-            }}
-          >
-            {children}
-          </div>
-          {condition}
-        </Fragment>
-      ) : (
-        <Fragment>
-          {condition}
-          <div
-            style={{
-              paddingTop: "0.75em",
-              marginLeft: "2.75em",
-            }}
-          >
-            {children}
-          </div>
-        </Fragment>
-      )}
+    <div className="loop test-first">
+      {condition}
+      {children}
+    </div>
+  );
+};
+
+type TestLastLoopBlockProps = {
+  condition: string;
+  children: ReactNode;
+};
+export const TestLastLoopBlock: FC<TestLastLoopBlockProps> = (
+  props,
+) => {
+  const { condition, children } = props;
+
+  return (
+    <div className="loop test-last">
+      {children}
+      {condition}
     </div>
   );
 };

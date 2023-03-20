@@ -1,5 +1,104 @@
 * {
-    font-family: "Fira Code";
-    font-size: large;
-    box-sizing: border-box;
+  font-family: "Fira Code";
+  font-size: large;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: powderblue;
+}
+
+.structogram {
+  background-color: snow;
+  margin: auto;
+  padding: 3em;
+  margin-top: 5em;
+  width: 45%;
+}
+
+.process {
+  padding: 0.75em;
+  border-width: 0.15em;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-color: black;
+  border-style: solid;
+}
+
+.structogram > .process {
+  border-right-width: 0.15em;
+}
+
+.structogram > .process:first-child {
+  border-width: 0.15em;
+  border-bottom: 0;
+}
+
+.structogram > .process:last-child {
+  border-width: 0.15em;
+}
+
+.branch-switch {
+  padding: 0.75em;
+  padding-bottom: 0;
+  padding-right: 0;
+
+  border-width: 0.15em;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-color: black;
+  border-style: solid;
+}
+
+.branch-switch > .branch-case {
+  margin-top: 0.75em;
+  margin-left: 2em;
+}
+
+.branch-switch > .branch-case:not(:last-child) > :last-child {
+  border-bottom-width: 0.15em;
+}
+
+.structogram > .branch-switch {
+  border-right-width: 0.15em;
+}
+
+.loop {
+  padding: 0.75em;
+  padding-right: 0;
+
+  border-width: 0.15em;
+  border-right-width: 0;
+  border-bottom: 0;
+  border-color: black;
+  border-style: solid;
+}
+
+.loop > * {
+  margin-left: 2em;
+}
+
+.loop.test-first > :first-child {
+  margin-top: 0.75em;
+}
+
+.loop.test-first {
+  padding-bottom: 0;
+}
+
+.loop.test-last > :last-child {
+  margin-bottom: 0.75em;
+  border-bottom-width: 0.15em;
+}
+
+.loop.test-last > :first-child {
+  border-top-width: 0;
+}
+
+.loop.test-last {
+  padding-top: 0;
+}
+
+.structogram > .loop {
+  border-right-width: 0.15em;
 }

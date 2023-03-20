@@ -4,12 +4,7 @@ import { Test } from "./structograms/test";
 
 export const App: FC = () => {
   return (
-    <div
-      style={{
-        margin: "auto",
-        width: "45%",
-      }}
-    >
+    <div className="structogram">
       <Test />
     </div>
   );

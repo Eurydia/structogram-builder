@@ -3,30 +3,34 @@ import {
   ProcessBlock,
   BranchBlock,
   CaseBlock,
-  LoopBlock,
+  TestFirstLoopBlock,
   StartBlock,
   EndBlock,
+  TestLastLoopBlock,
 } from "../components";
 
 export const Test: FC = () => {
   return (
     <Fragment>
-      <StartBlock>def Fibonacci</StartBlock>
-      <ProcessBlock>n := Read</ProcessBlock>
-      <BranchBlock condition="n = 1 or n = 2">
-        <CaseBlock condition="True">
-          <ProcessBlock>return 1</ProcessBlock>
-        </CaseBlock>
-      </BranchBlock>
-      <ProcessBlock>i := 2</ProcessBlock>
-      <ProcessBlock>prev := 1; curr := 1; next := -1</ProcessBlock>
-      <LoopBlock condition="while i < n">
-        <ProcessBlock>next := curr + prev</ProcessBlock>
-        <ProcessBlock>prev := curr</ProcessBlock>
-        <ProcessBlock>curr := next</ProcessBlock>
+      <StartBlock>Test</StartBlock>
+      <ProcessBlock>n := 10</ProcessBlock>
+
+      <TestLastLoopBlock condition="i < n">
         <ProcessBlock>i := i + 1</ProcessBlock>
-      </LoopBlock>
-      <EndBlock>return curr</EndBlock>
+        <TestFirstLoopBlock condition="j < i">
+          <ProcessBlock>j := j + 1</ProcessBlock>
+          <BranchBlock condition="n = 9">
+            <CaseBlock condition="True">
+              <ProcessBlock>Exit</ProcessBlock>
+            </CaseBlock>
+            <CaseBlock condition="False">
+              <ProcessBlock>-</ProcessBlock>
+            </CaseBlock>
+          </BranchBlock>
+        </TestFirstLoopBlock>
+      </TestLastLoopBlock>
+
+      <EndBlock>Exit</EndBlock>
     </Fragment>
   );
 };
