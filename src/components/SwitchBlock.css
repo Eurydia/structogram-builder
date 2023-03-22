@@ -1,0 +1,78 @@
+[data-switch] {
+  border-width: 0.2em 0.2em 0 0.2em;
+  border-color: black;
+  border-style: solid;
+}
+
+[data-switch-condition] {
+  padding: 1em;
+}
+
+[data-cases] {
+  display: flex;
+  flex-direction: row;
+}
+
+[data-case] {
+  /* background-color: red; */
+  flex-grow: 1;
+}
+
+[data-case-condition] {
+  display: grid;
+  width: 100%;
+}
+
+[data-case-condition-triangle] {
+  background: url(lineLeft.svg);
+  background-repeat: none;
+  background-size: 100% 100%;
+}
+
+[data-case-condition-text] {
+  padding: 1em 1em 0.5em 1em;
+}
+
+[data-case-process] {
+  height: 100%;
+}
+
+[data-case-condition-text] > span {
+  background-color: white;
+}
+
+[data-case-condition] > * {
+  grid-area: 1 / 1;
+}
+
+[data-case-process] > * {
+  border-width: 0.2em 0 0 0;
+}
+
+[data-cases] > :not(:first-child):not(:last-child) {
+  border-width: 0 0 0 0.2em;
+  border-color: black;
+  border-style: solid;
+}
+
+[data-cases] > :last-child > [data-case-process] {
+  border-width: 0 0 0 0.2em;
+  border-color: black;
+  border-style: solid;
+}
+
+[data-cases]
+  > :last-child
+  > [data-case-condition]
+  > [data-case-condition-triangle] {
+  background: url(lineRight.svg);
+  background-repeat: none;
+  background-size: 100% 100%;
+}
+
+[data-cases]
+  > :last-child
+  > [data-case-condition]
+  > [data-case-condition-text] {
+  text-align: right;
+}

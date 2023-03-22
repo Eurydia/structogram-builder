@@ -1,0 +1,35 @@
+[data-loop] {
+  /* background-color: cornflowerblue; */
+  border-width: 0.2em 0.2em 0 0.2em;
+  border-color: black;
+  border-style: solid;
+}
+
+[data-loop-condition] {
+  border-style: solid;
+  border-width: 0;
+  border-color: black;
+}
+
+[data-loop-process] > * {
+  border-width: 0.2em 0 0 0.2em;
+}
+
+[data-loop] > [data-loop-condition] {
+  /* background-color: grey; */
+  padding: 1em;
+}
+
+[data-loop] > [data-loop-process] {
+  margin-left: 2em;
+}
+
+[data-loop="last"] > [data-loop-process] > :first-child {
+  /* background-color: red; */
+  border-width: 0 0 0 0.2em;
+}
+
+[data-loop="last"] > [data-loop-process] > :last-child {
+  /* background-color: red; */
+  border-width: 0.2em 0 0.2em 0.2em;
+}

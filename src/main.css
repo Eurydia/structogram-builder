@@ -1,6 +1,7 @@
 * {
   font-family: "Fira Code";
   font-size: large;
+  font-weight: 600;
   box-sizing: border-box;
 }
 
@@ -13,10 +14,26 @@ body {
   margin: auto;
   padding: 3em;
   margin-top: 5em;
-  width: 45%;
+  width: 60%;
 }
 
-.process {
+.structogram > * {
+  overflow: hidden;
+}
+
+.structogram > :last-child {
+  border-width: 0.2em;
+}
+/* 
+.structogram > div[data-process] {
+  border-right-width: 0.15em;
+}
+
+.structogram > div[data-loop] {
+  border-right-width: 0.15em;
+}
+
+div[data-process] {
   padding: 0.75em;
   border-width: 0.15em;
   border-right-width: 0;
@@ -25,16 +42,12 @@ body {
   border-style: solid;
 }
 
-.structogram > .process {
-  border-right-width: 0.15em;
-}
-
-.structogram > .process:first-child {
+.structogram > :first-child {
   border-width: 0.15em;
   border-bottom: 0;
 }
 
-.structogram > .process:last-child {
+.structogram > :last-child {
   border-width: 0.15em;
 }
 
@@ -55,6 +68,10 @@ body {
   margin-left: 2em;
 }
 
+.branch-triangle {
+  background-color: red;
+}
+
 .branch-switch > .branch-case:not(:last-child) > :last-child {
   border-bottom-width: 0.15em;
 }
@@ -63,7 +80,7 @@ body {
   border-right-width: 0.15em;
 }
 
-.loop {
+div[data-loop] {
   padding: 0.75em;
   padding-right: 0;
 
@@ -74,31 +91,27 @@ body {
   border-style: solid;
 }
 
-.loop > * {
+div[data-loop] > * {
   margin-left: 2em;
 }
 
-.loop.test-first > :first-child {
-  margin-top: 0.75em;
-}
-
-.loop.test-first {
+div[data-loop="first"] {
   padding-bottom: 0;
 }
 
-.loop.test-last > :last-child {
-  margin-bottom: 0.75em;
-  border-bottom-width: 0.15em;
+div[data-loop="first"] > :first-child {
+  margin-top: 0.75em;
 }
 
-.loop.test-last > :first-child {
-  border-top-width: 0;
-}
-
-.loop.test-last {
+div[data-loop="last"] {
   padding-top: 0;
 }
 
-.structogram > .loop {
-  border-right-width: 0.15em;
+div[data-loop="last"] > :last-child {
+  border-top-width: 0;
 }
+
+div[data-loop="last"] > :first-child {
+  margin-bottom: 0.75em;
+  border-bottom-width: 0.15em;
+} */

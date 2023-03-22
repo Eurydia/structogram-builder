@@ -1,36 +1,32 @@
 import { FC, Fragment } from "react";
 import {
   ProcessBlock,
-  BranchBlock,
+  SwitchBlock,
   CaseBlock,
-  TestFirstLoopBlock,
-  StartBlock,
-  EndBlock,
-  TestLastLoopBlock,
+  LoopBlock,
+  // StartBlock,
+  // EndBlock,
 } from "../components";
 
 export const Test: FC = () => {
   return (
     <Fragment>
-      <StartBlock>Test</StartBlock>
-      <ProcessBlock>n := 10</ProcessBlock>
+      <ProcessBlock>Test</ProcessBlock>
+      <ProcessBlock>Read n</ProcessBlock>
 
-      <TestLastLoopBlock condition="i < n">
-        <ProcessBlock>i := i + 1</ProcessBlock>
-        <TestFirstLoopBlock condition="j < i">
-          <ProcessBlock>j := j + 1</ProcessBlock>
-          <BranchBlock condition="n = 9">
-            <CaseBlock condition="True">
-              <ProcessBlock>Exit</ProcessBlock>
-            </CaseBlock>
-            <CaseBlock condition="False">
-              <ProcessBlock>-</ProcessBlock>
-            </CaseBlock>
-          </BranchBlock>
-        </TestFirstLoopBlock>
-      </TestLastLoopBlock>
+      <SwitchBlock condition="rem of n / 3">
+        <CaseBlock condition="is 0">
+          <ProcessBlock>Hi</ProcessBlock>
+        </CaseBlock>
+        {/* <CaseBlock condition="is 1">
+          <ProcessBlock>:|</ProcessBlock>
+        </CaseBlock> */}
+        <CaseBlock condition="is 2">
+          <ProcessBlock>:(</ProcessBlock>
+        </CaseBlock>
+      </SwitchBlock>
 
-      <EndBlock>Exit</EndBlock>
+      <ProcessBlock>Exit</ProcessBlock>
     </Fragment>
   );
 };
