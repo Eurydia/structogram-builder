@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 import "./SwitchBlock.css";
 
 type CaseBlockProps = {
-  condition: string;
+  condition: ReactNode;
   children: ReactNode;
 };
 export const CaseBlock: FC<CaseBlockProps> = (props) => {
@@ -23,7 +23,7 @@ export const CaseBlock: FC<CaseBlockProps> = (props) => {
 };
 
 type SwitchBlockProps = {
-  condition: string;
+  condition: ReactNode;
   children: ReactNode;
 };
 export const SwitchBlock: FC<SwitchBlockProps> = (props) => {

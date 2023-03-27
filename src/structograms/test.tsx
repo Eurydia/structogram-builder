@@ -11,9 +11,7 @@ import {
 export const Test: FC = () => {
   return (
     <Fragment>
-      {/* <ProcessBlock>In: N</ProcessBlock>
-      <ProcessBlock>In: AQ[1..N, 1..2]</ProcessBlock>
-      <ProcessBlock>result := 0</ProcessBlock>
+      {/* <ProcessBlock>result := 0</ProcessBlock>
       <LoopBlock variant="first" condition="i = 2..N">
         <SwitchBlock condition="cmp(i)">
           <CaseBlock condition="True">
@@ -23,22 +21,18 @@ export const Test: FC = () => {
             <ProcessBlock>-</ProcessBlock>
           </CaseBlock>
         </SwitchBlock>
-      </LoopBlock>
-      <ProcessBlock>return result</ProcessBlock> */}
-      <ProcessBlock>In: N</ProcessBlock>
-      <ProcessBlock>In: AQ[1..N, 1..2]</ProcessBlock>
+      </LoopBlock>*/}
       <ProcessBlock>result := 0</ProcessBlock>
       <LoopBlock variant="first" condition="i = 2..N">
-        <ProcessBlock>
-          prev_morning := AQ[i - 1, 1],
-          <br />
-          prev_evening := AQ[i - 1, 2],
-          <br />
-          curr_morning := AQ[i, 1],
-          <br />
-          curr_evening := AQ[i, 2]
-        </ProcessBlock>
-        <SwitchBlock condition="curr_morning > prev_morning AND curr_evening > prev_evening">
+        <SwitchBlock
+          condition={
+            <Fragment>
+              {"AQ[i - 1, 1] < AQ[i, 1] AND"}
+              <br />
+              {"AQ[i - 1, 2] < AQ[i, 2]"}
+            </Fragment>
+          }
+        >
           <CaseBlock condition="True">
             <ProcessBlock>result := result + 1</ProcessBlock>
           </CaseBlock>
@@ -47,7 +41,6 @@ export const Test: FC = () => {
           </CaseBlock>
         </SwitchBlock>
       </LoopBlock>
-      <ProcessBlock>return result</ProcessBlock>
     </Fragment>
   );
 };
