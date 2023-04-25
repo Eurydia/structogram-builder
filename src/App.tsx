@@ -1,11 +1,13 @@
 import { FC } from "react";
-
-import { Test } from "./structograms/test";
+import {
+  Pattern,
+  Algo,
+} from "./structograms/ShoppingForTheFirstBrandOfTea";
 
 export const App: FC = () => {
   return (
     <div className="structogram">
-      <Test />
+      <Algo />
     </div>
   );
 };
