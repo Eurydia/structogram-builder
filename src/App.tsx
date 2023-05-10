@@ -2,12 +2,12 @@ import { FC } from "react";
 import {
   Pattern,
   Algo,
-} from "./structograms/ShoppingForTheFirstBrandOfTea";
+} from "./structograms/BirthOfGraduateBySeason";
 
 export const App: FC = () => {
   return (
     <div className="structogram">
-      <Algo />
+      <Pattern />
     </div>
   );
 };
