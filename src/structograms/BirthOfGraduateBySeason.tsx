@@ -9,19 +9,22 @@ import {
 export const Pattern: FC = () => {
   return (
     <Fragment>
-      <ProcessBlock>counter = 1</ProcessBlock>
-      <ProcessBlock>Y[1..]</ProcessBlock>
+      <ProcessBlock>MinVal := INF</ProcessBlock>
+      <ProcessBlock>MinInd := 0</ProcessBlock>
       <LoopBlock variant="first" condition="i = 1..N">
-        <SwitchBlock condition="A(X[i])">
+        <SwitchBlock
+          condition={"numbers[i] < MinVal && numbers[i] > 10"}
+        >
           <CaseBlock condition="True">
-            <ProcessBlock>Y[counter] := X[i]</ProcessBlock>
-            <ProcessBlock>counter := counter + 1</ProcessBlock>
+            <ProcessBlock>MinInd := i</ProcessBlock>
+            <ProcessBlock>MinVal := numbers[i]</ProcessBlock>
           </CaseBlock>
           <CaseBlock condition="False">
             <ProcessBlock>-</ProcessBlock>
           </CaseBlock>
         </SwitchBlock>
       </LoopBlock>
+      <ProcessBlock>{"MinInd > 0"}</ProcessBlock>
     </Fragment>
   );
 };
